@@ -62,4 +62,13 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- CS. 8 Oct 2024
+vim.cmd 'colorscheme evening'
+vim.cmd ":iab <expr> ttime strftime('CS: [%e-%b-%Y %H:%M]')"
+
+-- left/right arrow keys change line
+vim.cmd 'set whichwrap+=<,>,[,]'
+vim.cmd 'hi LineNr term=bold cterm=NONE ctermfg=DarkGrey'
+vim.cmd 'hi lCursor      guibg=Cyan  guifg=NONE'
+
 -- vim: ts=2 sts=2 sw=2 et
