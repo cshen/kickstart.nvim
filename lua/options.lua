@@ -1,12 +1,12 @@
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+-- For more options, you can see `:help option-list`
 
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
+-- Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -16,9 +16,9 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
+-- Schedule the setting after `UiEnter` because it can increase startup-time.
+-- Remove this option if you want your OS clipboard to remain independent.
+-- See `:help 'clipboard'`
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
@@ -62,7 +62,6 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- CS. 8 Oct 2024
 vim.cmd 'colorscheme evening'
 vim.cmd ":iab <expr> ttime strftime('CS: [%e-%b-%Y %H:%M]')"
 
@@ -71,4 +70,7 @@ vim.cmd 'set whichwrap+=<,>,[,]'
 vim.cmd 'hi LineNr term=bold cterm=NONE ctermfg=DarkGrey'
 vim.cmd 'hi lCursor      guibg=Cyan  guifg=NONE'
 
+-- I load some VIM scipt here. They are in lua/local/*
+vim.cmd 'source $HOME/.config/nvim/lua/local/supertab.vim'
+vim.cmd 'source $HOME/.config/nvim/lua/local/jump_to_lastpost.vim'
 -- vim: ts=2 sts=2 sw=2 et

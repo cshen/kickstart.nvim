@@ -31,6 +31,16 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- CS: My keymaps, 8-Oct-2024
+vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', { desc = 'Save' })
+vim.keymap.set('i', '<C-s>', '<ESC><cmd>write<cr>', { desc = 'Save' })
+
+-- Copy to clipboard
+vim.keymap.set({ 'n', 'x' }, '<C-c>', '"+y', { desc = 'Copy to clipboad' })
+
+-- Paste
+vim.keymap.set({ 'n', 'x' }, '<C-v>', '"+p')
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
