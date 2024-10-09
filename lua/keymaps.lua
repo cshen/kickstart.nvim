@@ -1,6 +1,8 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- NOTE normal mode, cc --> toggle comment on/off. This is defined in plugin Comment.nvim
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -34,7 +36,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- CS: My keymaps, 8-Oct-2024
 vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', { desc = 'Save' })
 vim.keymap.set('i', '<C-s>', '<ESC><cmd>write<cr>', { desc = 'Save' })
-
 
 -- Copy to clipboard
 vim.keymap.set({ 'n', 'x' }, '<C-c>', '"+y', { desc = 'Copy to clipboad' })
