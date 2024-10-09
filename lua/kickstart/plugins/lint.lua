@@ -12,6 +12,7 @@ return {
         bash = { 'shellcheck' },
         python = { 'pylint' },
         fish = { 'fish' },
+        lua = { 'luac' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

@@ -83,7 +83,7 @@ require 'keymaps'
 require 'lazy-bootstrap'
 
 -- [[ Configure and install plugins ]]
-require 'lazy-plugins'
+require 'plugins'
 
 -- CS: I config colorscheme etc in options file, so it must be loaded at the last
 -- [[ Setting options ]]
