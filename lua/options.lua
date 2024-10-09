@@ -1,3 +1,4 @@
+-- CS:  9-Oct-2024 15:57
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -50,8 +51,8 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -62,15 +63,36 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Workaround for a lazyvim bug, https://github.com/neovim/neovim/issues/29900
+-- https://github.com/LazyVim/LazyVim/blob/12818a6cb499456f4903c5d8e68af43753ebc869/lua/lazyvim/config/autocmds.lua#L130
+vim.g.bigfile_size = 1024 * 1024 * 1 -- 1M
+
 vim.cmd 'colorscheme evening'
-vim.cmd ":iab <expr> ttime strftime('CS: [%e-%b-%Y %H:%M]')"
+vim.cmd ":iab <expr> ttime strftime('CS: %e-%b-%Y %H:%M')"
 
 -- left/right arrow keys change line
 vim.cmd 'set whichwrap+=<,>,[,]'
-vim.cmd 'hi LineNr term=bold cterm=NONE ctermfg=DarkGrey'
-vim.cmd 'hi lCursor      guibg=Cyan  guifg=NONE'
 
 -- I load some VIM scipt here. They are in lua/local/*
 vim.cmd 'source $HOME/.config/nvim/lua/local/supertab.vim'
-vim.cmd 'source $HOME/.config/nvim/lua/local/jump_to_lastpost.vim'
+vim.cmd 'source $HOME/.config/nvim/lua/local/mswin.vim'
+vim.cmd 'source $HOME/.config/nvim/lua/local/_user.vim'
+
+-- https://github.com/neovim/neovim/issues/19204#issuecomment-1327498068
+-- copying from Neovim to Windows clipboard
+vim.opt.clipboard = 'unnamedplus'
+if vim.fn.has 'wsl' == 1 then
+  vim.g.clipboard = {
+    name = 'win32yank-wsl',
+    copy = {
+      ['+'] = 'win32yank.exe -i --crlf',
+      ['*'] = 'win32yank.exe -i --crlf',
+    },
+    paste = {
+      ['+'] = 'win32yank.exe -o --lf',
+      ['*'] = 'win32yank.exe -o --lf',
+    },
+    cache_enabled = 0,
+  }
+end
 -- vim: ts=2 sts=2 sw=2 et
