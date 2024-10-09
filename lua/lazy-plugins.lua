@@ -33,7 +33,10 @@ require('lazy').setup({
   require 'kickstart/plugins/todo-comments',
   require 'kickstart/plugins/mini',
   require 'kickstart/plugins/treesitter',
-  require 'kickstart/plugins/gruvbox',      -- color scheme
+  require 'kickstart/plugins/ts-comments',
+  require 'kickstart/plugins/comment',
+  require 'kickstart/plugins/gruvbox', -- color scheme
+
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.

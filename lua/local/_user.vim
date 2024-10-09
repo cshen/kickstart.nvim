@@ -26,6 +26,7 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 au BufWritePost * lua require('lint').try_lint()
 
+"-----------------------------------------------------------------------
 " Switch on search pattern highlighting.
 set         hlsearch
 colorscheme evening
@@ -47,7 +48,8 @@ hi SpellRare  guisp=blue   gui=undercurl guifg=NONE guibg=NONE
 hi SpellLocal guisp=orange gui=undercurl guifg=NONE guibg=NONE
 
 hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=gray45  guibg=gray10
-
+"-----------------------------------------------------------------------
+:set modifiable
 :set ff=unix
 
 
