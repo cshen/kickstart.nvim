@@ -5,12 +5,11 @@ return {
     -- See `:help ibl`
     main = 'ibl',
     opts = {
-     -- indent = {
+      indent = {
         -- CS:  8-Oct-2024 23:01 I do not know how to change the color, so disable the indent line. Too bright
-        -- Solved, hi VertSplit ....
-     --   char = '',
-     --   tab_char = '.',
-     -- },
+        char = ' ',
+        tab_char = '.',
+      },
     },
   },
 }
