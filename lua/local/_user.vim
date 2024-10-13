@@ -36,7 +36,9 @@ au BufWritePost * lua require('lint').try_lint()
 set         hlsearch
 colorscheme evening
 
-hi lCursor      guibg=Cyan  guifg=NONE
+hi VertSplit guibg=bg guifg=darkgreen cterm=NONE
+
+hi lCursor      guibg=yellow  guifg=NONE
 hi CursorLine   cterm=NONE  ctermbg=NONE      guibg=grey15
 hi ColorColumn  ctermbg=0   guibg=grey15
 
