@@ -1,4 +1,3 @@
-
 " to have Vim jump to the last position when reopening a file
 " restore cursor position
 augroup restore_pos | au!
@@ -18,8 +17,9 @@ cnoremap <expr> <right> getcmdline() =~# edit_re && wildmenumode() ? " \<bs>\<C-
 
 set timeoutlen=1000 ttimeoutlen=0
 
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>
+" Configed in keymap.lua already. CS: 13-Oct-2024 11:46 
+" :nmap <c-s> :w<CR>
+" :imap <c-s> <Esc>:w<CR>
 
 command! Wq wq
 command! W  w
@@ -55,5 +55,4 @@ hi LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=gray
 "-----------------------------------------------------------------------
 :set modifiable
 :set ff=unix
-
 
