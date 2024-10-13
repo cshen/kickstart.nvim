@@ -37,6 +37,12 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<C-s>', '<cmd>write<cr>', { desc = 'Save' })
 vim.keymap.set('i', '<C-s>', '<ESC><cmd>write<cr>', { desc = 'Save' })
 
+-- https://stackoverflow.com/questions/4945132/remap-s-to-save-a-file-in-vim
+-- I mapped cmd-s to send hex code 0x1b 0x4f 0x51 which corresponds to F2 (e.g., using iTerm2's "Send Text"). Then,
+-- imap <F2> <C-O>:update<CR>
+vim.keymap.set('n', '<F2>', '<cmd>write<cr>', { desc = 'Save' })
+vim.keymap.set('i', '<F2>', '<ESC><cmd>write<cr>', { desc = 'Save' })
+
 -- Copy to clipboard
 vim.keymap.set({ 'n', 'x' }, '<C-c>', '"+y', { desc = 'Copy to clipboad' })
 
