@@ -36,6 +36,7 @@ au BufWritePost * lua require('lint').try_lint()
 set         hlsearch
 colorscheme evening
 
+" The following two lines do not work for neovim-indent. Need to figure out, CS: [13-Oct-2024 17:43]
 hi IblIndent guifg=drakgreen guibg=bg cterm=NONE
 hi IblScope guifg=drakgreen guibg=bg cterm=NONE
 
