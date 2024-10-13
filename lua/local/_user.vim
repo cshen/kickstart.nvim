@@ -17,7 +17,7 @@ cnoremap <expr> <right> getcmdline() =~# edit_re && wildmenumode() ? " \<bs>\<C-
 
 set timeoutlen=1000 ttimeoutlen=0
 
-" Configed in keymap.lua already. CS: 13-Oct-2024 11:46 
+" Configed in keymap.lua already. CS: 13-Oct-2024 11:46
 " :nmap <c-s> :w<CR>
 " :imap <c-s> <Esc>:w<CR>
 
@@ -35,6 +35,9 @@ au BufWritePost * lua require('lint').try_lint()
 " Switch on search pattern highlighting.
 set         hlsearch
 colorscheme evening
+
+hi IblIndent guifg=drakgreen guibg=bg cterm=NONE
+hi IblScope guifg=drakgreen guibg=bg cterm=NONE
 
 hi VertSplit guibg=bg guifg=darkgreen cterm=NONE
 
