@@ -58,13 +58,7 @@ Kickstart Guide:
     Throughout the file. These are for you, the reader, to help you understand what is happening.
     Feel free to delete them once you know what you're doing, but they should serve as a guide
     for when you are first encountering a few different constructs in your Neovim config.
-
 If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
-
-I hope you enjoy your Neovim journey,
-- TJ
-
-P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
 -- Set <space> as the leader key
