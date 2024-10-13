@@ -1,6 +1,6 @@
 # kickstart-modular.nvim
 
-### CS: 13-Oct-2024 16:59 
+- CS: 13-Oct-2024 16:59 
 
 ## Introduction
 
