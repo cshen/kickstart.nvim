@@ -24,6 +24,7 @@ set timeoutlen=1000 ttimeoutlen=0
 command! Wq wq
 command! W  w
 command! Q  q
+command! FF Neotree float
 
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
