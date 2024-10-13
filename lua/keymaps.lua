@@ -45,10 +45,8 @@ vim.keymap.set('i', '<F2>', '<ESC><cmd>write<cr>', { desc = 'Save' })
 
 -- Copy to clipboard
 vim.keymap.set({ 'n', 'x' }, '<C-c>', '"+y', { desc = 'Copy to clipboad' })
-
 -- Paste
 vim.keymap.set({ 'n', 'x' }, '<C-v>', '"+p')
-
 vim.keymap.set({ 'n', 'x' }, '<C-x>', '"+d', { desc = 'Cut' })
 
 -- [[ Basic Autocommands ]]
