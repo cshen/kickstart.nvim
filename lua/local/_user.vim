@@ -21,6 +21,10 @@ set timeoutlen=1000 ttimeoutlen=0
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>
 
+command! Wq wq
+command! W  w
+command! Q  q
+
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
