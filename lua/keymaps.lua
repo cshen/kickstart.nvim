@@ -52,7 +52,7 @@ vim.keymap.set({ 'n', 'x' }, '<C-v>', '"+p')
 vim.keymap.set({ 'n', 'x' }, '<C-x>', '"+d', { desc = 'Cut' })
 
 -- Termial mode
-vim.keymap.set('t', '<C-l>', 'clear', { desc = 'Clear screen' })
+-- vim.keymap.set('t', '<C-l>', 'clear<CR>', { desc = 'Clear screen' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -86,5 +86,12 @@ local function toggle_terminal()
 end
 vim.keymap.set('n', '<Leader>t', toggle_terminal) -- ", + t" --> get into the Termial
 vim.keymap.set('t', '<C-o>', '<C-\\><C-n><C-o>')
+
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '',
+  command = 'startinsert',
+})
+
+vim.keymap.set('t', '<leader>l', 'clear<cr>', { desc = 'Clear screen' })
 
 -- vim: ts=2 sts=2 sw=2 et

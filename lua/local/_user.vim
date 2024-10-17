@@ -1,4 +1,4 @@
-" CS: 17-Oct-2024 15:19 
+" CS: 17-Oct-2024 15:19
 "
 " to have Vim jump to the last position when reopening a file
 " restore cursor position
@@ -27,8 +27,9 @@ command! Wq wq
 command! W  w
 command! Q  q
 command! FF Neotree float
-" Open a terminal by splitting the windows. 
+" Open a terminal by splitting the windows.
 command! Term :bot sp | term
+
 
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
