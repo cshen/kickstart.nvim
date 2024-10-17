@@ -16,7 +16,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit insert in terminal mode' })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode to get into normal mode' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -49,6 +51,9 @@ vim.keymap.set({ 'n', 'x' }, '<C-c>', '"+y', { desc = 'Copy to clipboad' })
 vim.keymap.set({ 'n', 'x' }, '<C-v>', '"+p')
 vim.keymap.set({ 'n', 'x' }, '<C-x>', '"+d', { desc = 'Cut' })
 
+-- Termial mode
+vim.keymap.set('t', '<C-l>', 'clear', { desc = 'Clear screen' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -62,5 +67,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- CS: 17-Oct-2024 14:29
+-- Editing
+vim.keymap.set('i', 'jj', '<ESC>', { silent = true, desc = 'Return to normal mode' })
+
+-- Terminal
+local function toggle_terminal()
+  for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+    local buffer_name = vim.api.nvim_buf_get_name(buffer)
+    if string.sub(buffer_name, 1, 7) == 'term://' then
+      vim.api.nvim_win_set_buf(0, buffer)
+
+      return
+    end
+  end
+  vim.api.nvim_command ':terminal'
+end
+vim.keymap.set('n', '<Leader>t', toggle_terminal) -- ", + t" --> get into the Termial
+vim.keymap.set('t', '<C-o>', '<C-\\><C-n><C-o>')
 
 -- vim: ts=2 sts=2 sw=2 et

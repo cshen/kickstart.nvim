@@ -1,3 +1,5 @@
+" CS: 17-Oct-2024 15:19 
+"
 " to have Vim jump to the last position when reopening a file
 " restore cursor position
 augroup restore_pos | au!
@@ -25,11 +27,28 @@ command! Wq wq
 command! W  w
 command! Q  q
 command! FF Neotree float
+" Open a terminal by splitting the windows. 
+command! Term :bot sp | term
 
 " backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 au BufWritePost * lua require('lint').try_lint()
+
+"-----------------------------------------------------------------------
+" make Terminal default mode insert
+let g:previous_window = -1
+function SmartInsert()
+  if &buftype == 'terminal'
+    if g:previous_window != winnr()
+      startinsert
+    endif
+    let g:previous_window = winnr()
+  else
+    let g:previous_window = -1
+  endif
+endfunction
+au BufEnter * call SmartInsert()
 
 "-----------------------------------------------------------------------
 " Switch on search pattern highlighting.
