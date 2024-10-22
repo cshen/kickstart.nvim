@@ -2,6 +2,13 @@
 
 - CS: 13-Oct-2024 16:59, customized for my own use 
 
+```
+mkdir -p ~/Projects
+cd ~/Projects
+git clone https://github.com/cshen/kickstart.nvim
+ln -s ~/Projects/kickstart.nvim ~/.config/nvim 
+```
+
 
 ## Introduction
 
