@@ -10,6 +10,10 @@ vim.opt.number = true
 -- Experiment for yourself to see if you like it!
 -- vim.opt.relativenumber = true
 
+-- Sync buffers automatically and disable vim generating a swap file
+vim.opt.autoread = true
+vim.opt.swapfile = false
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
@@ -83,14 +87,14 @@ vim.cmd 'source $HOME/.config/nvim/lua/local/_user.vim'
 vim.opt.clipboard = 'unnamedplus'
 if vim.fn.has 'wsl' == 1 then
   vim.g.clipboard = {
-    name = 'win32yank-wsl',
+    name = 'pbcopy',
     copy = {
-      ['+'] = 'win32yank.exe -i --crlf',
-      ['*'] = 'win32yank.exe -i --crlf',
+      ['+'] = 'pbcopy',
+      ['*'] = 'pbcopy',
     },
     paste = {
-      ['+'] = 'win32yank.exe -o --lf',
-      ['*'] = 'win32yank.exe -o --lf',
+      ['+'] = 'pbpaste',
+      ['*'] = 'pbpaste',
     },
     cache_enabled = 0,
   }
