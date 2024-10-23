@@ -9,6 +9,9 @@ git clone https://github.com/cshen/kickstart.nvim
 ln -s ~/Projects/kickstart.nvim ~/.config/nvim 
 ```
 
+- Change Log:
+-- CS: 23 Oct 2024 17:35, local/_user.vim, transparently editing age encrypted files 
+
 
 ## Introduction
 
