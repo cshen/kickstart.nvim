@@ -98,7 +98,10 @@ autocmd BufReadPre,FileReadPre      *.age let shsave=&sh
 autocmd BufReadPre,FileReadPre      *.age let &sh='bash'
 autocmd BufReadPre,FileReadPre      *.age let ch_save = &ch|set ch=2
 
+"
 " autocmd BufReadPost,FileReadPost    *.age '[,']!gpg --decrypt --default-recipient-self 2> /dev/null
+" CS:  8 Nov 2024 14:00 YOU NEED TO CHANGE TO YOUR OWN AGE PRIVATE KEY HERE
+"
 autocmd BufReadPost,FileReadPost    *.age '[,']! age -d -i ~/.config/age/cs.priv.key 2> /dev/null
 
 autocmd BufReadPost,FileReadPost    *.age let &sh=shsave
@@ -113,6 +116,7 @@ autocmd BufWritePre,FileWritePre    *.age let shsave=&sh
 autocmd BufWritePre,FileWritePre    *.age let &sh='bash'
 
 " autocmd BufWritePre,FileWritePre    *.age '[,']!gpg --encrypt --default-recipient-self 2>/dev/null
+" CS:  8 Nov 2024 14:01 CHANGE TO YOUR OWN AGE PUB KEY
 autocmd BufWritePre,FileWritePre    *.age '[,']!age -r $(head -1 ~/.config/age/cs.pub.key) 2>/dev/null
 
 autocmd BufWritePre,FileWritePre    *.age let &sh=shsave
