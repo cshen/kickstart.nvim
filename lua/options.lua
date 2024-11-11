@@ -24,9 +24,13 @@ vim.opt.showmode = false
 -- Schedule the setting after `UiEnter` because it can increase startup-time.
 -- Remove this option if you want your OS clipboard to remain independent.
 -- See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+--
+-- CS: 11 Nov 2024 13:05 - I have removed this because it was causing Copy/Paste issues in Termux 
+-- (working on macOS. Do not know why it is not working on Termux). 
+-- Commented  out for now.
+-- vim.schedule(function()
+--  vim.opt.clipboard = 'unnamedplus'
+-- end)
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -84,7 +88,6 @@ vim.cmd 'source $HOME/.config/nvim/lua/local/_user.vim'
 
 -- https://github.com/neovim/neovim/issues/19204#issuecomment-1327498068
 -- copying from Neovim to Windows clipboard
-vim.opt.clipboard = 'unnamedplus'
 if vim.fn.has 'wsl' == 1 then
   vim.g.clipboard = {
     name = 'pbcopy',
