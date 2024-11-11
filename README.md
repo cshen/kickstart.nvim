@@ -10,11 +10,11 @@ ln -s ~/Projects/kickstart.nvim ~/.config/nvim
 ```
 
 - Change Log:
-* CS: 23 Oct 2024 17:35, local/_user.vim, transparently editing age encrypted files 
-* CS: 11-Nov-2024 11:59, added copilot, supertab 
+-- CS: 23 Oct 2024 17:35, local/_user.vim, transparently editing age encrypted files 
+-- CS: 11-Nov-2024 11:59, added copilot, supertab 
 
 - For Termux neovim only
-* Lua LSP need a fix:
+-- Lua LSP need a fix:
 
 ```
 mkdir -p  ~/.local/share/nvim/mason/packages/lua-language-server/libexec/bin/
@@ -25,10 +25,11 @@ mkdir -p  ~/.local/share/nvim/mason/packages/stylua
 ln -s "$(command -v stylua)" ~/.local/share/nvim/mason/packages/stylua/stylua
 ```
 
-* Copy/paste error: nothing in register 
-Solution is to remove the clipboard setting in options.lua
+-- Copy/paste error: nothing in register
+ 
+The solution is to remove the clipboard setting in options.lua and
 comment out: vim.opt.clipboard = 'unnamedplus'
-```
+
 
 ## Introduction
 
