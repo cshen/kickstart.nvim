@@ -14,7 +14,7 @@ ln -s ~/Projects/kickstart.nvim ~/.config/nvim
 * CS: 11-Nov-2024 11:59, added copilot, supertab 
 
 - For Termux neovim only
-LSP need a fix:
+* Lua LSP need a fix:
 
 ```
 mkdir -p  ~/.local/share/nvim/mason/packages/lua-language-server/libexec/bin/
@@ -25,6 +25,10 @@ mkdir -p  ~/.local/share/nvim/mason/packages/stylua
 ln -s "$(command -v stylua)" ~/.local/share/nvim/mason/packages/stylua/stylua
 ```
 
+* Copy/paste error: nothing in register 
+Solution is to remove the clipboard setting in options.lua
+comment out: vim.opt.clipboard = 'unnamedplus'
+```
 
 ## Introduction
 
