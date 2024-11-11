@@ -10,8 +10,8 @@ ln -s ~/Projects/kickstart.nvim ~/.config/nvim
 ```
 
 - Change Log:
--- CS: 23 Oct 2024 17:35, local/_user.vim, transparently editing age encrypted files 
-
+* CS: 23 Oct 2024 17:35, local/_user.vim, transparently editing age encrypted files 
+* CS: 11-Nov-2024 11:59, added copilot, supertab 
 
 ## Introduction
 
