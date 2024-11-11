@@ -78,7 +78,7 @@ vim.cmd ":iab <expr> ttime strftime('CS: %e-%b-%Y %H:%M')"
 vim.cmd 'set whichwrap+=<,>,[,]'
 
 -- I load some VIM scipt here. They are in lua/local/*
-vim.cmd 'source $HOME/.config/nvim/lua/local/supertab.vim'
+-- vim.cmd 'source $HOME/.config/nvim/lua/local/supertab.vim' -- Now loaded as a plugin
 vim.cmd 'source $HOME/.config/nvim/lua/local/mswin.vim'
 vim.cmd 'source $HOME/.config/nvim/lua/local/_user.vim'
 
