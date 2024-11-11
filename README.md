@@ -13,6 +13,10 @@ ln -s ~/Projects/kickstart.nvim ~/.config/nvim
 * CS: 23 Oct 2024 17:35, local/_user.vim, transparently editing age encrypted files 
 * CS: 11-Nov-2024 11:59, added copilot, supertab 
 
+- For Termux neovim only
+LSP need a fix:
+
+
 ## Introduction
 
 *This is a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) that moves from a single file to a multi file configuration.*
