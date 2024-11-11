@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+#!/usr/bin/env bash
+
+exec "$HOME/.local/share/nvim/mason/packages/lua-language-server/libexec/bin/lua-language-server" "$@"
+
+

@@ -16,6 +16,15 @@ ln -s ~/Projects/kickstart.nvim ~/.config/nvim
 - For Termux neovim only
 LSP need a fix:
 
+```
+mkdir -p  ~/.local/share/nvim/mason/packages/lua-language-server/libexec/bin/
+ln -s "$(command -v lua-language-server)" ~/.local/share/nvim/mason/packages/lua-language-server/libexec/bin/lua-language-server
+ln -s ~/.config/nvim/fix-termux/lua-language-server ~/.local/share/nvim/mason/packages/lua-language-server/lua-language-server 
+
+
+mkdir -p  ~/.local/share/nvim/mason/packages/stylua
+
+```
 
 ## Introduction
 
