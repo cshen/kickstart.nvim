@@ -19,6 +19,9 @@ require('lazy').setup({
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
 
+  -- CS:  26 Nov 2024 15:39
+  require 'kickstart/plugins/tiny-inline',
+
   -- CS:  9 Nov 2024 15:39
   require 'kickstart/plugins/copilot',
   require 'kickstart/plugins/supertab',
