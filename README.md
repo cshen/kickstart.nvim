@@ -1,5 +1,6 @@
 # kickstart-modular.nvim
 
+- CS: 06-Oct-2026, fixed some errors
 - CS: 13-Oct-2024 16:59, customized for my own use 
 
 ```
