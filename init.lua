@@ -18,6 +18,10 @@ vim.g.have_nerd_font = true
 require 'lazy-bootstrap'
 
 -- [[ Configure and install plugins ]]
+-- Neovim >=0.10 adds a default insert-mode <S-Tab> mapping (vim.snippet).
+-- ervandew/supertab's <s-tab> preservation block calls function('') on it
+-- and fails with E129, so remove it before plugins are sourced.
+pcall(vim.keymap.del, 'i', '<S-Tab>')
 require 'plugins'
 
 -- CS: I config colorscheme etc in options file, so it must be loaded at the last
