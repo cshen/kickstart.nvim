@@ -80,7 +80,20 @@ require_arg() {
 }
 
 usage() {
-  sed -n '3,12p' "$0" | sed 's/^# \{0,1\}//'
+  # Not read from $0: this script is also meant to be run as `curl ... | bash`,
+  # where $0 is just "bash" and no file exists to read.
+  cat <<'EOF'
+install.sh -- macOS installer for this kickstart.nvim fork.
+
+Does exactly what the Installation section of README.md describes:
+  Homebrew -> neovim + dependencies -> clone -> symlink into ~/.config/nvim -> run nvim
+macOS only; it refuses to run anywhere else.
+
+  ./install.sh [--with-extras] [--dry-run]
+
+  --with-extras  also install the optional bits: Nerd Font, node, age
+  --dry-run      print what would happen, change nothing
+EOF
   exit 0
 }
 

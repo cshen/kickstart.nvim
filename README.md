@@ -1,5 +1,25 @@
 # kickstart.nvim
 
+## Quick install (macOS, one-liner)
+
+The installer does everything described under [Installation](#installation-macos):
+Homebrew, the dependencies, the clone into `~/Projects/kickstart.nvim`, and the symlink
+to `~/.config/nvim`. It is macOS only, it stops if `~/.config/nvim` already exists, and
+it takes no questions, so it is safe to hand to an agent or a fresh machine.
+
+```sh
+# see what it would do, change nothing
+curl -fsSL https://raw.githubusercontent.com/cshen/kickstart.nvim/master/install.sh | bash -s -- --dry-run
+
+# include the optional bits: Nerd Font, node, age
+curl -fsSL https://raw.githubusercontent.com/cshen/kickstart.nvim/master/install.sh | bash -s -- --with-extras
+```
+
+`bash -s --` is what hands the flags to the script instead of to `bash`; drop the flags
+entirely (`| bash`) for a plain install.
+
+## About
+
 My personal, modular fork of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim),
 based on [dam9000/kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim).
 Kickstart is **not** a distribution: it is a small, completely documented starting point
