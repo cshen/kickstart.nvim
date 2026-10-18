@@ -114,7 +114,7 @@ refuse_existing_config
 require_homebrew
 
 step 'Installing Neovim and dependencies with Homebrew'
-run brew install neovim git ripgrep fd
+run brew install neovim git ripgrep fd   tree-sitter-cli
 
 if [ "$WITH_EXTRAS" -eq 1 ]; then
   step 'Installing optional extras'

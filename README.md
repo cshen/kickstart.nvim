@@ -48,7 +48,7 @@ xcode-select --install   # clang and make, needed to compile treesitter parsers
 ### 2. Neovim and dependencies
 
 ```sh
-brew install neovim git ripgrep fd
+brew install neovim git ripgrep fd  tree-sitter-cli
 ```
 
 Optional, depending on what you edit:
