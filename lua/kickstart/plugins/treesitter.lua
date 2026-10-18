@@ -1,13 +1,16 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    -- Neovim 0.12 requires the rewritten `main` branch. The old `master`
+    -- branch crashes while highlighting markdown fences with:
+    -- "attempt to call method 'range' (a nil value)".
     branch = 'main',
     lazy = false, -- the `main` branch does not support lazy-loading
     build = ':TSUpdate',
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
     config = function()
       require('nvim-treesitter').setup {
-        install_dir = vim.fn.stdpath('data') .. '/site',
+        install_dir = vim.fn.stdpath 'data' .. '/site',
       }
 
       -- Ensure basic parsers are installed
@@ -34,17 +37,22 @@ return {
           return
         end
 
-        -- Check if a parser exists and load it
-        if not vim.treesitter.language.add(language) then
+        -- A stale or ABI-incompatible parser must not abort the FileType
+        -- autocommand (and therefore startup/redraw) with a Lua error.
+        local ok, loaded = pcall(vim.treesitter.language.add, language)
+        if not ok or not loaded then
           return
         end
 
         -- Enable syntax highlighting
-        vim.treesitter.start(buf, language)
+        if not pcall(vim.treesitter.start, buf, language) then
+          return
+        end
 
         -- Enable treesitter based indentation when an indent query is available.
         -- Without one, the indentexpr falls back to Vim's built-in behavior.
-        if vim.treesitter.query.get(language, 'indents') ~= nil then
+        local has_indent_query, indent_query = pcall(vim.treesitter.query.get, language, 'indents')
+        if has_indent_query and indent_query ~= nil then
           vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
       end
@@ -68,7 +76,10 @@ return {
           elseif vim.tbl_contains(available_parsers, language) then
             -- Auto-install the parser, then attach once it is ready
             require('nvim-treesitter').install(language):await(function()
-              try_attach(buf, language)
+              -- `await` completes in a libuv callback; attach from the main loop.
+              vim.schedule(function()
+                try_attach(buf, language)
+              end)
             end)
           else
             -- Parser may exist outside of nvim-treesitter, try to attach anyway
